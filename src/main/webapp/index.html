@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión de Alumnos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gestión de Alumnos</a>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Bienvenido</h1>
+        <p class="text-muted">Usa las opciones para administrar a tus alumnos</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📋 Listar Alumnos</h5>
+                    <p class="card-text">Ver todos los alumnos registrados en el sistema.</p>
+                    <a href="listar" class="btn btn-primary">Ver Lista</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">➕ Crear Alumno</h5>
+                    <p class="card-text">Registrar un nuevo alumno con sus datos.</p>
+                    <a href="crear.jsp" class="btn btn-success">Nuevo Alumno</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">✏️ Editar Alumno</h5>
+                    <p class="card-text">Selecciona un alumno de la lista y edítalo.</p>
+                    <a href="listar" class="btn btn-warning">Ir a Editar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">🗑️ Eliminar Alumno</h5>
+                    <p class="card-text">Selecciona un alumno de la lista y elimínalo.</p>
+                    <a href="listar" class="btn btn-danger">Ir a Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
