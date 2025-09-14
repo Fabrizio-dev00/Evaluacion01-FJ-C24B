@@ -6,6 +6,9 @@ public class Alumno {
     private String email;
     private int edad;
 
+    private Curso curso;
+
+
     public Alumno() {}
 
     public Alumno(int id, String nombre, String email, int edad) {
@@ -21,7 +24,14 @@ public class Alumno {
         this.edad = edad;
     }
 
-    // Getters y Setters
+    public Alumno(int id, String nombre, String email, int edad, Curso curso) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.edad = edad;
+        this.curso = curso;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -33,4 +43,7 @@ public class Alumno {
 
     public int getEdad() { return edad; }
     public void setEdad(int edad) { this.edad = edad; }
+
+    public Curso getCurso() { return curso; }
+    public void setCurso(Curso curso) { this.curso = curso; }
 }

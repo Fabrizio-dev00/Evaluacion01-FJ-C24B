@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.example.evaluacion01fjc24b.modelo.Alumno" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,40 +9,41 @@
     <title>Editar Alumno</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body class="container mt-5">
 
-<%
-    Alumno alumno = (Alumno) request.getAttribute("alumno");
-%>
+<h2>Editar Alumno</h2>
+<form action="editar" method="post" class="card p-4 shadow rounded">
+    <input type="hidden" name="id" value="${alumno.id}">
 
-<div class="container mt-5">
-    <div class="card shadow-sm">
-        <div class="card-header bg-warning text-dark">
-            <h3 class="mb-0">✏️ Editar Alumno</h3>
-        </div>
-        <div class="card-body">
-            <form action="${pageContext.request.contextPath}/editar" method="post">
-                <input type="hidden" name="id" value="<%= alumno.getId() %>">
-
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="<%= alumno.getNombre() %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo electrónico:</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<%= alumno.getEmail() %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="edad" class="form-label">Edad:</label>
-                    <input type="number" class="form-control" id="edad" name="edad" value="<%= alumno.getEdad() %>" required>
-                </div>
-                <button type="submit" class="btn btn-warning">Actualizar</button>
-                <a href="${pageContext.request.contextPath}/listar" class="btn btn-secondary">Cancelar</a>
-            </form>
-        </div>
+    <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" name="nombre" value="${alumno.nombre}" class="form-control" required>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input type="email" name="email" value="${alumno.email}" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Edad:</label>
+        <input type="number" name="edad" value="${alumno.edad}" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Curso:</label>
+        <select name="curso_id" class="form-select" required>
+            <c:forEach var="c" items="${listaCursos}">
+                <option value="${c.id}" <c:if test="${c.id == alumno.curso.id}">selected</c:if>>
+                        ${c.nombre}
+                </option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a href="listar" class="btn btn-secondary">Cancelar</a>
+</form>
+
 </body>
 </html>

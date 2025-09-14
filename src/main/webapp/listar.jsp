@@ -9,43 +9,47 @@
 </head>
 <body class="bg-light">
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">Lista de Alumnos</h2>
-        <!-- 🔙 Botón regresar al menú -->
-        <a href="${pageContext.request.contextPath}/index.html" class="btn btn-secondary">
-            ⬅️ Regresar al Menú
-        </a>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">📋 Lista de Alumnos</h2>
+
+    <div class="text-end mb-3">
+        <a href="crear" class="btn btn-success">➕ Nuevo Alumno</a>
     </div>
 
-    <a href="crear.jsp" class="btn btn-success mb-3">➕ Nuevo Alumno</a>
-
-    <table class="table table-striped table-hover shadow-sm">
-        <thead class="table-primary">
+    <table class="table table-hover table-bordered align-middle">
+        <thead class="table-dark text-center">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
             <th>Edad</th>
+            <th>Curso</th>
             <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="a" items="${listaAlumnos}">
             <tr>
-                <td>${a.id}</td>
+                <td class="text-center">${a.id}</td>
                 <td>${a.nombre}</td>
                 <td>${a.email}</td>
-                <td>${a.edad}</td>
-                <td>
+                <td class="text-center">${a.edad}</td>
+                <td class="text-center">
+                    <span class="badge bg-info text-dark">${a.curso.nombre}</span>
+                </td>
+                <td class="text-center">
                     <a href="editar?id=${a.id}" class="btn btn-warning btn-sm">✏️ Editar</a>
                     <a href="eliminar?id=${a.id}" class="btn btn-danger btn-sm"
-                       onclick="return confirm('¿Seguro que quieres eliminar este alumno?');">🗑️ Eliminar</a>
+                       onclick="return confirm('¿Seguro que quieres eliminar este alumno?')">🗑 Eliminar</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+    <div class="text-center mt-4">
+        <a href="index.html" class="btn btn-secondary">⬅️ Volver al menú</a>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
